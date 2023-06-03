@@ -9,26 +9,26 @@
 
     <!-- button1 -->
     <button onclick="
-      pickComputerMove();  //function recalled
-      playGame('Rock')
+      playGame('rock')
     "><h3>Rock</h3></button>
 
     <!-- button2 -->
     <button onclick="
-      pickComputerMove();
       playGame('paper')
     "><h3>Paper</h3></button>
 
     <!-- button3 -->
     <button onclick="
-      pickComputerMove();
       playGame('scissors');
     "><h3>Scissor</h3></button>
 </center>
-<!-- js-function -->
+
 <script>
-    //used (parameters)
     function playGame(playerMove){
+
+        const computerMove = pickComputerMove();
+        let result = ''
+
         if(playerMove === 'scissors'){
             if (computerMove === 'rock') {
             result = 'You loose';
@@ -37,6 +37,7 @@
             } else if (computerMove === 'scissors') {
                 result = 'Tie';
             }
+
         } else if (playerMove === 'paper') {
             if (computerMove === 'rock') {
             result = 'You win';
@@ -46,7 +47,7 @@
                 result = 'You lose';
             }
 
-        } else if (playerMove === 'Rock') {
+        } else if (playerMove === 'rock') {
             if (computerMove === 'rock') {
                 result = 'Tie';
             } else if (computerMove === 'paper') {
@@ -59,13 +60,10 @@
         alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
     }
 
-    let result = '';
     let computerMove = '';
 		
-		//main fuction
     function pickComputerMove(){
         const randomNumber = Math.random();
-        // booleans
         if (randomNumber >= 0 && randomNumber < 1 / 3) {
         computerMove = 'rock'; 
         } else if (randomNumber >= 1 / 3 && randomNumber < 2 /3 ) {
@@ -74,6 +72,7 @@
             computerMove = 'scissor';
         }
         console.log(computerMove)
+        return computerMove;
     }
 </script>
 </body>
